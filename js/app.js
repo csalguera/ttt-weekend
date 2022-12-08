@@ -21,7 +21,7 @@ const messageEl = document.getElementById('board')
 /*-------------------------------- Functions --------------------------------*/
 
 window.onload = function init() {
-  board = [null, null, null, null, null, null, null, null, null]
+  board = [1, -1, null, null, null, null, null, null, null]
   turn = 1
   winner = false
   tie = false
@@ -34,10 +34,15 @@ function render() {
 }
 
 function updateBoard() {
-  // board.forEach(square => square = 'a')
-  squareEls.forEach(square => square.addEventListener('click', () => {
-    square.textContent = 'a'
-  }))
+  board.forEach(function(square, idx) {
+    if (square === null) {
+      return
+    } else if (square === 1) {
+      squareEls[idx].textContent = 'x'
+    } else if (square === -1) {
+      squareEls[idx].textContent = 'o'
+    }
+  })
 }
 
 function updateMessage() {
