@@ -26,11 +26,26 @@ window.onload = function init() {
   winner = false
   tie = false
   render()
-  updateBoard()
 }
 
 function render() {
+  updateBoard()
+  updateMessage()
   
+}
+
+function updateBoard() {
+  board.forEach(square => square = 'a')
+}
+
+function updateMessage() {
+  if (winner === false && tie === false) {
+    messageEl.textContent = `Game in Progress`
+  } else if (winner === false && tie === true) {
+    messageEl.textContent = `Close! But it's a tie!`
+  } else {
+    messageEl = `Congratulations! The winner is ${winner}`
+  }
 }
 
 // // 1) Define the required variables used to track the state of the game
