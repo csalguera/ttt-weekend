@@ -1,6 +1,15 @@
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 4, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 4, 6],
+  [2, 5, 8]
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -21,7 +30,7 @@ const messageEl = document.getElementById('board')
 /*-------------------------------- Functions --------------------------------*/
 
 window.onload = function init() {
-  board = [1, -1, null, null, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = false
   tie = false
@@ -62,7 +71,7 @@ function updateMessage() {
 // // 3) Upon loading, the game state should be initialized, and a function should be 
 // //   called to render this game state
 
-// 4) The state of the game should be rendered to the user
+// // 4) The state of the game should be rendered to the user
 
 // 5) Define the required constants
 
