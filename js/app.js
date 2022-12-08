@@ -25,7 +25,7 @@ const messageEl = document.getElementById('board')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+squareEls.forEach(square => square.addEventListener('click', handleClick))
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -64,6 +64,10 @@ function updateMessage() {
   }
 }
 
+function handleClick(evt) {
+  const sqIdx = evt.target
+}
+
 // // 1) Define the required variables used to track the state of the game
 
 // // 2) Store cached element references
@@ -73,7 +77,7 @@ function updateMessage() {
 
 // // 4) The state of the game should be rendered to the user
 
-// 5) Define the required constants
+// // 5) Define the required constants
 
 // 6) Handle a player clicking a square with a `handleClick` function
 
