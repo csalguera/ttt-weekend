@@ -11,7 +11,7 @@ let tie
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelector('.board')
+const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.getElementById('board')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -31,11 +31,13 @@ window.onload = function init() {
 function render() {
   updateBoard()
   updateMessage()
-  
 }
 
 function updateBoard() {
-  board.forEach(square => square = 'a')
+  // board.forEach(square => square = 'a')
+  squareEls.forEach(square => square.addEventListener('click', () => {
+    square.textContent = 'a'
+  }))
 }
 
 function updateMessage() {
