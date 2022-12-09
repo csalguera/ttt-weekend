@@ -91,32 +91,13 @@ function checkForTie() {
   }
 }
 
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 4, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 4, 6],
-//   [2, 5, 8]
-
 function checkForWinner() {
-  // get index from each combo
-  // each combo must have a value of 1 or -1 to declare a winner
-  // if 3 'x' wins
-  // else if -3 'o' wins
-
-  // if (Math.abs(board[0] + board[1] + board[2]) === 3) {
-  //   winner = true
-  // }
   winningCombos.forEach(combo => {
     if (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3) {
       winner = true
     }
   })
 }
-
-// checkForWinner()
 
 // // 1) Define the required variables used to track the state of the game
 
