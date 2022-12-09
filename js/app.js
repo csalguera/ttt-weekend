@@ -74,6 +74,18 @@ function handleClick(evt) {
   }
 }
 
+function placePiece(idx) {
+  board[idx] = turn
+}
+
+function checkForTie() {
+  if (board.some(square => square === null)) {
+    tie = false
+  } else {
+    tie = true
+  }
+}
+
 // // 1) Define the required variables used to track the state of the game
 
 // // 2) Store cached element references
