@@ -55,12 +55,18 @@ function updateBoard() {
 }
 
 function updateMessage() {
+  let player
+  if (turn === 1) {
+    player = 'Player 1'
+  } else {
+    player = 'Player 2'
+  }
   if (winner === false && tie === false) {
-    messageEl.textContent = `Game in Progress`
+    messageEl.textContent = `It is ${player}'s turn.`
   } else if (winner === false && tie === true) {
     messageEl.textContent = `Close! But it's a tie!`
   } else {
-    messageEl.textContent = `Congratulations!`
+    messageEl.textContent = `Congratulations ${player}! You won!`
   }
 }
 
