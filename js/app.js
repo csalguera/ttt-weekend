@@ -60,7 +60,7 @@ function updateMessage() {
   } else if (winner === false && tie === true) {
     messageEl.textContent = `Close! But it's a tie!`
   } else {
-    messageEl.textContent = `Congratulations! The winner is`
+    messageEl.textContent = `Congratulations!`
   }
 }
 
@@ -73,6 +73,9 @@ function handleClick(evt) {
     return
   }
   placePiece(sqIdx)
+  checkForTie()
+  checkForWinner()
+  render()
 }
 
 function placePiece(sqIdx, idx) {
@@ -98,10 +101,23 @@ function checkForTie() {
 //   [2, 5, 8]
 
 function checkForWinner() {
+  // get index from each combo
   // each combo must have a value of 1 or -1 to declare a winner
   // if 3 'x' wins
   // else if -3 'o' wins
+
+  // if (Math.abs(board[0] + board[1] + board[2]) === 3) {
+  //   winner = true
+  // }
+  winningCombos.forEach(combo => {
+    if (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3) {
+      winner = true
+    }
+  })
 }
+
+// checkForWinner()
+
 // // 1) Define the required variables used to track the state of the game
 
 // // 2) Store cached element references
