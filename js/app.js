@@ -118,5 +118,3 @@ function switchPlayerTurn() {
     turn *= -1
   }
 }
-
-// 7) Create Reset functionality
