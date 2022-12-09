@@ -75,9 +75,9 @@ function handleClick(evt) {
   placePiece(sqIdx)
 }
 
-function placePiece(idx, sqIdx) {
+function placePiece(sqIdx, idx) {
   idx = turn
-  return board[sqIdx] = board[idx]
+  board[sqIdx] = idx
 }
 
 function checkForTie() {
