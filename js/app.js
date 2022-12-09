@@ -75,6 +75,7 @@ function handleClick(evt) {
   placePiece(sqIdx)
   checkForTie()
   checkForWinner()
+  switchPlayerTurn()
   render()
 }
 
@@ -97,6 +98,14 @@ function checkForWinner() {
       winner = true
     }
   })
+}
+
+function switchPlayerTurn() {
+  if (winner === true) {
+    return
+  } else {
+    turn *= -1
+  }
 }
 
 // // 1) Define the required variables used to track the state of the game
