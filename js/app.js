@@ -72,10 +72,12 @@ function handleClick(evt) {
   if (winner === true) {
     return
   }
+  placePiece(sqIdx)
 }
 
-function placePiece(idx) {
-  board[idx] = turn
+function placePiece(idx, sqIdx) {
+  idx = turn
+  return board[sqIdx] = board[idx]
 }
 
 function checkForTie() {
@@ -86,6 +88,20 @@ function checkForTie() {
   }
 }
 
+//   [0, 1, 2],
+//   [3, 4, 5],
+//   [6, 7, 8],
+//   [0, 4, 8],
+//   [0, 3, 6],
+//   [1, 4, 7],
+//   [2, 4, 6],
+//   [2, 5, 8]
+
+function checkForWinner() {
+  // each combo must have a value of 1 or -1 to declare a winner
+  // if 3 'x' wins
+  // else if -3 'o' wins
+}
 // // 1) Define the required variables used to track the state of the game
 
 // // 2) Store cached element references
