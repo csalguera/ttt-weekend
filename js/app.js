@@ -25,12 +25,12 @@ const messageEl = document.getElementById('board')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-squareEls.forEach(square => square.addEventListener('click', handleClick))
+squareEls.forEach(squareEl => squareEl.addEventListener('click', handleClick))
 
 /*-------------------------------- Functions --------------------------------*/
 
 window.onload = function init() {
-  board = [null, null, null, null, null, null, null, null, null]
+  board = [1, -1, null, null, null, null, null, null, null]
   turn = 1
   winner = false
   tie = false
@@ -60,12 +60,18 @@ function updateMessage() {
   } else if (winner === false && tie === true) {
     messageEl.textContent = `Close! But it's a tie!`
   } else {
-    messageEl = `Congratulations! The winner is ${winner}`
+    messageEl.textContent = `Congratulations! The winner is`
   }
 }
 
 function handleClick(evt) {
-  const sqIdx = evt.target
+  const sqIdx = evt.target.id = evt.target.id.split('').pop()
+  if (board[sqIdx] !== null) {
+    return
+  }
+  if (winner === true) {
+    return
+  }
 }
 
 // // 1) Define the required variables used to track the state of the game
