@@ -140,11 +140,7 @@ function handleMouseOver(evt) {
 }
 
 function handleMouseOut(evt) {
-  if (evt.target.style.background === 'green') {
-    evt.target.style.background = ''
-  } else if (evt.target.style.background === 'blue') {
-    evt.target.style.background = ''
-  } else if (evt.target.style.background === 'red') {
+  if (evt.target.style.background !== '') {
     evt.target.style.background = ''
   }
 }
