@@ -29,6 +29,9 @@ const resetBtnEl = document.querySelector('button')
 
 squareEls.forEach(squareEl => squareEl.addEventListener('click', handleClick))
 resetBtnEl.addEventListener('click', init)
+// Optional/Additional Event Listeners
+squareEls.forEach(squareEl => squareEl.addEventListener('mouseover', handleMouseOver))
+squareEls.forEach(squareEl => squareEl.addEventListener('mouseout', handleMouseOut))
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -63,13 +66,16 @@ function updateMessage() {
   let player
   if (turn === 1) {
     player = 'Player 1'
+    messageEl.style.background = 'green'
   } else {
     player = 'Player 2'
+    messageEl.style.background = 'blue'
   }
   if (winner === false && tie === false) {
     messageEl.textContent = `It is ${player}'s turn.`
   } else if (winner === false && tie === true) {
     messageEl.textContent = `Close! But it's a tie!`
+    messageEl.style.background = 'orange'
   } else {
     messageEl.textContent = `Congratulations ${player}! You won!`
   }
@@ -116,5 +122,29 @@ function switchPlayerTurn() {
     return
   } else {
     turn *= -1
+  }
+}
+
+// Optional/Additional Functions
+function handleMouseOver(evt) {
+  const sqIdx = evt.target.id.split('').pop()
+  if (board[sqIdx] === null && winner === false) {
+    if (turn === 1) {
+      evt.target.style.background = 'green'
+    } else {
+      evt.target.style.background = 'blue'
+    }
+  } else {
+    evt.target.style.background = 'red'
+  }
+}
+
+function handleMouseOut(evt) {
+  if (evt.target.style.background === 'green') {
+    evt.target.style.background = ''
+  } else if (evt.target.style.background === 'blue') {
+    evt.target.style.background = ''
+  } else if (evt.target.style.background === 'red') {
+    evt.target.style.background = ''
   }
 }
